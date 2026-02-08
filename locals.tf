@@ -20,14 +20,11 @@ locals {
   }
 }
 
+locals {
   rds_config = {
     primary = {
-      class = "db.t3.micro"
+      class    = "db.t3.micro"
       multi_az = true
     }
-    replica = {
-      class = "db.t3.micro"
-    }
   }
-
 }
