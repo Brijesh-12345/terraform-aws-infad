@@ -19,13 +19,19 @@ locals {
   }
 }
 
+resource "aws_key_pair" "mykey" {
+  key_name   = var.key_name
+  public_key = file("../my-keypair.pub")
+
+}
+
 resource "aws_instance" "ec2" {
   for_each = local.ec2_instances
 
   ami           = var.ami_id
   instance_type = each.value.type
   subnet_id     = each.value.subnet
-  key_name      = var.key_name
+  key_name = aws_key_pair.mykey.key_name
 
   tags = {
     Name = "ec2-${each.key}"
