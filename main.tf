@@ -51,7 +51,7 @@ module "alb_private" {
 
 
 
-module "cdn" {
-  source = "./modules/cloudfront"
-  alb_dns = module.alb_public.alb_dns
-}
+#module "cdn" {
+#  source = "./modules/cloudfront"
+#  alb_dns = module.alb_public.alb_dns
+#}
