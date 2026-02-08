@@ -12,6 +12,7 @@ module "ec2" {
   public_subnets = module.vpc.public_subnets
   vpc_id         = module.vpc.vpc_id
   key_name       = var.key_name  # ADD THIS
+  ami_id         = var.ami_id
 }
 
 
